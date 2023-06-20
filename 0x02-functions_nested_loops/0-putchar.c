@@ -1,6 +1,12 @@
-#include <stdio.h>
+#include "main.h"
 
-int main() {
-    printf("_putchar\n");
-    return 0;
+/**
+ * main - This program prints _putchar
+ *
+ * Return: 0 if program is successful
+ */
+int main(void)
+{
+	_putchar('_putchar'/n);
+	return (0);
 }
