@@ -1,4 +1,4 @@
-#include <main.h>
+#include "main.h"
 
 void positive_or_negative(int i)
 {
@@ -8,4 +8,4 @@ void positive_or_negative(int i)
 		printf("%d is negative\n", i);
 	else
 		printf("%d is zero\n, i);
-}
+}i
