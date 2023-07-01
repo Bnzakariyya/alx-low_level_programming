@@ -6,7 +6,7 @@
 int _putchar(char c);
 
 /**
- * print_number - prints numbers
+ * print_number - prints number
  * @n: number to be printed
  * Return:void
  */
