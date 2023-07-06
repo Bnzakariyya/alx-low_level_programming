@@ -1,52 +1,48 @@
 #include "main.h"
 
-/**
- * last_index - returns the last index of a string (counts the null char)
- * @s: pointer the string
- * Return: int
- */
-
-int last_index(char *s)
-{
-	int n = 0;
-
-	if (*s > '\0')
-		n += last_index(s + 1) + 1;
-
-	return (n);
-}
+int parser(char *s, int x, int lent);
+int _recursion(char *s);
 
 /**
- * is_palindrome - check if a string is a palindrome
- * @s: string to check
- * Return: 0 or 1
+ * is_palindrome - This function returns 1
+ * if a string is a palindrome and 0 if not.
+ * @s: string to reverse
+ *
+ * Return: 1 if it is, 0 it's not
  */
-
 int is_palindrome(char *s)
 {
-	int end = last_index(s);
-
-	return (check(s, 0, end - 1, end % 2));
+        if (*s == 0)
+                return (1);
+        return (parser(s, 0, _recursion(s)));
 }
 
 /**
- * check - checker for the palindrome
- * @s: string
- * @start: int moves from right to left
- * @end: int moves from left to right
- * @pair: int
- * Return: 0 or 1
+ * _recursion - returns the length of a string
+ * @s: string to calculate the length of
+ *
+ * Return: length of the string
  */
-
-
-int check(char *s, int start, int end, int pair)
+int _recursion(char *s)
 {
-
-	if ((start == end && pair != 0) || (start == end + 1 && pair == 0))
-		return (1);
-	else if (s[start] != s[end])
-		return (0);
-	else
-		return (check(s, start + 1, end - 1, pair));
+        if (*s == '\0')
+                return (0);
+        return (1 + _recursion(s + 1));
 }
 
+/**
+ * parser - evaluate the characters recursively for palindrome
+ * @s: string to check
+ * @x: iterating value
+ * @lent: length of the string
+ *
+ * Return: 1 if palindrome, 0 if not
+ */
+int parser(char *s, int x, int lent)
+{
+        if (*(s + x) != *(s + lent - 1))
+                return (0);
+        if (x >= lent)
+                return (1);
+        return (parser(s, x + 1, lent - 1));
+}
